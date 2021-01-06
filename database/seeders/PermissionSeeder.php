@@ -1,13 +1,15 @@
 <?php
 
-use App\Module;
-use App\Permission;
+namespace Database\Seeders;
+
+use App\Models\Module;
+use App\Models\Permission;
 use Illuminate\Database\Seeder;
 
 class PermissionSeeder extends Seeder
 {
     /**
-     * Run the database seeds.
+     * Run the database seeders.
      *
      * @return void
      */

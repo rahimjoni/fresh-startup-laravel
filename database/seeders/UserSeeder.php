@@ -1,14 +1,16 @@
 <?php
 
-use App\Role;
-use App\User;
+namespace Database\Seeders;
+
+use App\Models\Role;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
 class UserSeeder extends Seeder
 {
     /**
-     * Run the database seeds.
+     * Run the database seeders.
      *
      * @return void
      */
