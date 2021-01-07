@@ -1,94 +1,162 @@
-<div class="app-header header-shadow">
-    <div class="app-header__logo">
-        <div class="logo-src"></div>
-        <div class="header__pane ml-auto">
-            <div>
-                <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
-                    <span class="hamburger-box">
-                        <span class="hamburger-inner"></span>
-                    </span>
-                </button>
-            </div>
-        </div>
-    </div>
-    <div class="app-header__mobile-menu">
-        <div>
-            <button type="button" class="hamburger hamburger--elastic mobile-toggle-nav">
-                <span class="hamburger-box">
-                    <span class="hamburger-inner"></span>
-                </span>
-            </button>
-        </div>
-    </div>
-    <div class="app-header__menu">
-        <span>
-            <button type="button" class="btn-icon btn-icon-only btn btn-primary btn-sm mobile-toggle-header-nav">
-                <span class="btn-icon-wrapper">
-                    <i class="fa fa-ellipsis-v fa-w-6"></i>
-                </span>
-            </button>
-        </span>
-    </div>
-    <div class="app-header__content">
-        <div class="app-header-left">
-            <div class="search-wrapper">
-                <div class="input-holder">
-                    <input type="text" class="search-input" placeholder="Type to search">
-                    <button class="search-icon"><span></span></button>
+<header class="topbar-nav">
+    <nav id="header-setting" class="navbar navbar-expand fixed-top">
+        <ul class="navbar-nav mr-auto align-items-center">
+            <li class="nav-item">
+                <a class="nav-link toggle-menu" href="javascript:void();">
+                    <i class="icon-menu menu-icon"></i>
+                </a>
+            </li>
+            <li class="nav-item">
+                <form class="search-bar">
+                    <input type="text" class="form-control" placeholder="Enter keywords">
+                    <a href="javascript:void();"><i class="icon-magnifier"></i></a>
+                </form>
+            </li>
+        </ul>
+
+        <ul class="navbar-nav align-items-center right-nav-link">
+            <li class="nav-item dropdown-lg">
+                <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown" href="javascript:void();">
+                    <i class="fa fa-envelope-open-o"></i><span class="badge badge-primary badge-up">12</span></a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            You have 12 new messages
+                            <span class="badge badge-primary">12</span>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="javaScript:void();">
+                                <div class="media">
+                                    <div class="avatar"><img class="align-self-start mr-3" src="https://via.placeholder.com/110x110" alt="user avatar"></div>
+                                    <div class="media-body">
+                                        <h6 class="mt-0 msg-title">Jhon Deo</h6>
+                                        <p class="msg-info">Lorem ipsum dolor sit amet...</p>
+                                        <small>Today, 4:10 PM</small>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="javaScript:void();">
+                                <div class="media">
+                                    <div class="avatar"><img class="align-self-start mr-3" src="https://via.placeholder.com/110x110" alt="user avatar"></div>
+                                    <div class="media-body">
+                                        <h6 class="mt-0 msg-title">Sara Jen</h6>
+                                        <p class="msg-info">Lorem ipsum dolor sit amet...</p>
+                                        <small>Yesterday, 8:30 AM</small>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="javaScript:void();">
+                                <div class="media">
+                                    <div class="avatar"><img class="align-self-start mr-3" src="https://via.placeholder.com/110x110" alt="user avatar"></div>
+                                    <div class="media-body">
+                                        <h6 class="mt-0 msg-title">Dannish Josh</h6>
+                                        <p class="msg-info">Lorem ipsum dolor sit amet...</p>
+                                        <small>5/11/2018, 2:50 PM</small>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="javaScript:void();">
+                                <div class="media">
+                                    <div class="avatar"><img class="align-self-start mr-3" src="https://via.placeholder.com/110x110" alt="user avatar"></div>
+                                    <div class="media-body">
+                                        <h6 class="mt-0 msg-title">Katrina Mccoy</h6>
+                                        <p class="msg-info">Lorem ipsum dolor sit amet.</p>
+                                        <small>1/11/2018, 2:50 PM</small>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="list-group-item text-center"><a href="javaScript:void();">See All Messages</a></li>
+                    </ul>
                 </div>
-                <button class="close"></button>
-            </div>
-            <ul class="header-menu nav">
-                <li class="dropdown nav-item">
-                    <a href="javascript:void(0);" class="nav-link">
-                        <i class="nav-link-icon fa fa-cog"></i>
-                        View Site
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <div class="app-header-right">
-            <div class="header-btn-lg pr-0">
-                <div class="widget-content p-0">
-                    <div class="widget-content-wrapper">
-                        <div class="widget-content-left">
-                            <div class="btn-group">
-                                <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="p-0 btn">
-                                    <img width="42" class="rounded-circle" src="/assets/images/avatars/1.jpg" alt="">
-                                    <i class="fa fa-angle-down ml-2 opacity-8"></i>
-                                </a>
-                                <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right">
-                                    <a href="#" tabindex="0" class="dropdown-item">Profile</a>
-                                    <a href="#" tabindex="0" class="dropdown-item">Settings</a>
-                                    <a href="#" tabindex="0" class="dropdown-item">Change Password</a>
-                                    <div tabindex="-1" class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
+            </li>
+            <li class="nav-item dropdown-lg">
+                <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown" href="javascript:void();">
+                    <i class="fa fa-bell-o"></i><span class="badge badge-info badge-up">14</span></a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            You have 14 Notifications
+                            <span class="badge badge-info">14</span>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="javaScript:void();">
+                                <div class="media">
+                                    <i class="zmdi zmdi-accounts fa-2x mr-3 text-info"></i>
+                                    <div class="media-body">
+                                        <h6 class="mt-0 msg-title">New Registered Users</h6>
+                                        <p class="msg-info">Lorem ipsum dolor sit amet...</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="javaScript:void();">
+                                <div class="media">
+                                    <i class="zmdi zmdi-coffee fa-2x mr-3 text-warning"></i>
+                                    <div class="media-body">
+                                        <h6 class="mt-0 msg-title">New Received Orders</h6>
+                                        <p class="msg-info">Lorem ipsum dolor sit amet...</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="javaScript:void();">
+                                <div class="media">
+                                    <i class="zmdi zmdi-notifications-active fa-2x mr-3 text-danger"></i>
+                                    <div class="media-body">
+                                        <h6 class="mt-0 msg-title">New Updates</h6>
+                                        <p class="msg-info">Lorem ipsum dolor sit amet...</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="list-group-item text-center"><a href="javaScript:void();">See All Notifications</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="nav-item language">
+                <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown" href="javascript:void();"><i class="fa fa-flag"></i></a>
+                <ul class="dropdown-menu dropdown-menu-right">
+                    <li class="dropdown-item"> <i class="flag-icon flag-icon-gb mr-2"></i> English</li>
+                    <li class="dropdown-item"> <i class="flag-icon flag-icon-fr mr-2"></i> French</li>
+                    <li class="dropdown-item"> <i class="flag-icon flag-icon-cn mr-2"></i> Chinese</li>
+                    <li class="dropdown-item"> <i class="flag-icon flag-icon-de mr-2"></i> German</li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown" href="#">
+                    <span class="user-profile"><img src="https://via.placeholder.com/110x110" class="img-circle" alt="user avatar"></span>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-right">
+                    <li class="dropdown-item user-details">
+                        <a href="javaScript:void();">
+                            <div class="media">
+                                <div class="avatar"><img class="align-self-start mr-3" src="https://via.placeholder.com/110x110" alt="user avatar"></div>
+                                <div class="media-body">
+                                    <h6 class="mt-2 user-title">Sarajhon Mccoy</h6>
+                                    <p class="user-subtitle">mccoy@example.com</p>
                                 </div>
                             </div>
-                        </div>
-                        <div class="widget-content-left  ml-3 header-user-info">
-                            <div class="widget-heading">
-                                {{Auth::user()->name}}
-                            </div>
-                            <div class="widget-subheading">
-                                VP People Manager
-                            </div>
-                        </div>
-                        {{--<div class="widget-content-right header-user-info ml-3">
-                            <button type="button" class="btn-shadow p-1 btn btn-primary btn-sm show-toastr-example">
-                                <i class="fa text-white fa-calendar pr-1 pl-1"></i>
-                            </button>
-                        </div>--}}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+                        </a>
+                    </li>
+                    <li class="dropdown-divider"></li>
+                    <li class="dropdown-item"><i class="icon-envelope mr-2"></i> Inbox</li>
+                    <li class="dropdown-divider"></li>
+                    <li class="dropdown-item"><i class="icon-wallet mr-2"></i> Account</li>
+                    <li class="dropdown-divider"></li>
+                    <li class="dropdown-item"><i class="icon-settings mr-2"></i> Setting</li>
+                    <li class="dropdown-divider"></li>
+                    <li class="dropdown-item"><i class="icon-power mr-2"></i> Logout</li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</header>

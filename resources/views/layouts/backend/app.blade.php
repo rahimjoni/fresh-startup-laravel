@@ -1,39 +1,117 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <title>Fresh Startup Project </title>
+    <!--favicon-->
+    <link rel="icon" href="{{asset('backend/assets/images/favicon.ico')}}" type="image/x-icon"/>
+    <!-- Vector CSS -->
+    <link href="{{asset('backend/assets/plugins/vectormap/jquery-jvectormap-2.0.2.css')}}" rel="stylesheet"/>
+    <!-- simplebar CSS-->
+    <link href="{{asset('backend/assets/plugins/simplebar/css/simplebar.css')}}" rel="stylesheet"/>
+    <!-- Bootstrap core CSS-->
+    <link href="{{asset('backend/assets/css/bootstrap.min.css')}}" rel="stylesheet"/>
 
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
-    <!-- Styles -->
-    <link href="{{ asset('main.css') }}" rel="stylesheet">
+    <!-- animate CSS-->
+    <link href="{{asset('backend/assets/css/animate.css')}}" rel="stylesheet" type="text/css"/>
+    <!-- Icons CSS-->
+    <link href="{{asset('backend/assets/css/icons.css')}}" rel="stylesheet" type="text/css"/>
+    <!-- Sidebar CSS-->
+    <link href="{{asset('backend/assets/css/sidebar-menu.css')}}" rel="stylesheet"/>
+    <!-- Custom Style-->
+    <link href="{{asset('backend/assets/css/app-style.css')}}" rel="stylesheet"/>
+    <!-- skins CSS-->
+    <link href="{{asset('backend/assets/css/skins.css')}}" rel="stylesheet"/>
+    @stack('css')
 </head>
-<body>
-<div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
-    @include('backend.common.header')
-    @include('backend.common.settings')
 
-    <div class="app-main">
-        @include('backend.common.sidebar')
-        <div class="app-main__outer">
-            <div class="app-main__inner">
-                @yield('content')
-            </div>
-            @include('backend.common.footer')
+<body>
+
+<!-- start loader -->
+<div id="pageloader-overlay" class="visible incoming">
+    <div class="loader-wrapper-outer"><div class="loader-wrapper-inner">
+            <div class="loader"></div>
         </div>
-        <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
     </div>
 </div>
-<!-- Scripts -->
-<script src="{{ asset('assets/scripts/main.js') }}" defer></script>
-{{--<script src="{{ asset('js/app.js') }}" defer></script>--}}
+<!-- end loader -->
+
+<!-- Start wrapper-->
+<div id="wrapper">
+    <!--Start sidebar-wrapper-->
+    @include('backend.common.sidebar')
+    <!--End sidebar-wrapper-->
+
+    <!--Start topbar header-->
+    @include('backend.common.header')
+    <!--End topbar header-->
+
+    <div class="clearfix"></div>
+
+    <div class="content-wrapper">
+        <div class="container-fluid">
+
+            @yield('content')
+            <!--start overlay-->
+            <div class="overlay toggle-menu"></div>
+            <!--end overlay-->
+        </div>
+        <!-- End container-fluid-->
+
+    </div><!--End content-wrapper-->
+    <!--Start Back To Top Button-->
+    <a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
+    <!--End Back To Top Button-->
+
+    <!--Start footer-->
+   @include('backend.common.footer')
+    <!--End footer-->
+
+    <!--start color switcher-->
+    @include('backend.common.settings')
+    <!--end color switcher-->
+
+</div><!--End wrapper-->
+
+<!-- Bootstrap core JavaScript-->
+<script src="{{asset('backend/assets/js/jquery.min.js')}}"></script>
+<script src="{{asset('backend/assets/js/popper.min.js')}}"></script>
+<script src="{{asset('backend/assets/js/bootstrap.min.js')}}"></script>
+
+<!-- simplebar js -->
+<script src="{{asset('backend/assets/plugins/simplebar/js/simplebar.js')}}"></script>
+<!-- sidebar-menu js -->
+<script src="{{asset('backend/assets/js/sidebar-menu.js')}}"></script>
+<!-- loader scripts -->
+<script src="{{asset('backend/assets/js/jquery.loading-indicator.js')}}"></script>
+<!-- Custom scripts -->
+<script src="{{asset('backend/assets/js/app-script.js')}}"></script>
+<!-- Chart js -->
+
+<script src="{{asset('backend/assets/plugins/Chart.js/Chart.min.js')}}"></script>
+<!-- Vector map JavaScript -->
+<script src="{{asset('backend/assets/plugins/vectormap/jquery-jvectormap-2.0.2.min.js')}}"></script>
+<script src="{{asset('backend/assets/plugins/vectormap/jquery-jvectormap-world-mill-en.js')}}"></script>
+<!-- Easy Pie Chart JS -->
+<script src="{{asset('backend/assets/plugins/jquery.easy-pie-chart/jquery.easypiechart.min.js')}}"></script>
+<!-- Sparkline JS -->
+<script src="{{asset('backend/assets/plugins/sparkline-charts/jquery.sparkline.min.js')}}"></script>
+<script src="{{asset('backend/assets/plugins/jquery-knob/excanvas.js')}}"></script>
+<script src="{{asset('backend/assets/plugins/jquery-knob/jquery.knob.js')}}"></script>
+
+@stack('js')
+<script>
+    $(function() {
+        $(".knob").knob();
+    });
+</script>
+
+<!-- Index js -->
+<script src="{{asset('backend/assets/js/index.js')}}"></script>
+
 </body>
 </html>

@@ -1,504 +1,619 @@
 @extends('layouts.backend.app')
 @section('content')
-    <div class="app-page-title">
-        <div class="page-title-wrapper">
-            <div class="page-title-heading">
-                <div class="page-title-icon">
-                    <i class="pe-7s-car icon-gradient bg-mean-fruit">
-                    </i>
-                </div>
-                <div>Analytics Dashboard
-                    <div class="page-title-subheading">This is an example dashboard created using build-in elements and components.
+    <!--Start Dashboard Content-->
+
+    <div class="row mt-3">
+        <div class="col-12 col-lg-6 col-xl-3">
+            <div class="card gradient-deepblue">
+                <div class="card-body">
+                    <h5 class="text-white mb-0">9526 <span class="float-right"><i class="fa fa-shopping-cart"></i></span></h5>
+                    <div class="progress my-3" style="height:3px;">
+                        <div class="progress-bar" style="width:55%"></div>
                     </div>
-                </div>
-            </div>
-            <div class="page-title-actions">
-                <button type="button" data-toggle="tooltip" title="Example Tooltip" data-placement="bottom" class="btn-shadow mr-3 btn btn-dark">
-                    <i class="fa fa-star"></i>
-                </button>
-                <div class="d-inline-block dropdown">
-                    <button type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn-shadow dropdown-toggle btn btn-info">
-                        <span class="btn-icon-wrapper pr-2 opacity-7">
-                            <i class="fa fa-business-time fa-w-20"></i>
-                        </span>
-                        Buttons
-                    </button>
-                    <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right">
-                        <ul class="nav flex-column">
-                            <li class="nav-item">
-                                <a href="javascript:void(0);" class="nav-link">
-                                    <i class="nav-link-icon lnr-inbox"></i>
-                                    <span>Inbox</span>
-                                    <div class="ml-auto badge badge-pill badge-secondary">86</div>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="javascript:void(0);" class="nav-link">
-                                    <i class="nav-link-icon lnr-book"></i>
-                                    <span>Book</span>
-                                    <div class="ml-auto badge badge-pill badge-danger">5</div>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="javascript:void(0);" class="nav-link">
-                                    <i class="nav-link-icon lnr-picture"></i>
-                                    <span>Picture</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a disabled href="javascript:void(0);" class="nav-link disabled">
-                                    <i class="nav-link-icon lnr-file-empty"></i>
-                                    <span>File Disabled</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+                    <p class="mb-0 text-white small-font">Total Orders <span class="float-right">+4.2% <i class="zmdi zmdi-long-arrow-up"></i></span></p>
                 </div>
             </div>
         </div>
-    </div>
+        <div class="col-12 col-lg-6 col-xl-3">
+            <div class="card gradient-orange">
+                <div class="card-body">
+                    <h5 class="text-white mb-0">8323 <span class="float-right"><i class="fa fa-usd"></i></span></h5>
+                    <div class="progress my-3" style="height:3px;">
+                        <div class="progress-bar" style="width:55%"></div>
+                    </div>
+                    <p class="mb-0 text-white small-font">Total Revenue <span class="float-right">+1.2% <i class="zmdi zmdi-long-arrow-up"></i></span></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-lg-6 col-xl-3">
+            <div class="card gradient-ohhappiness">
+                <div class="card-body">
+                    <h5 class="text-white mb-0">6200 <span class="float-right"><i class="fa fa-eye"></i></span></h5>
+                    <div class="progress my-3" style="height:3px;">
+                        <div class="progress-bar" style="width:55%"></div>
+                    </div>
+                    <p class="mb-0 text-white small-font">Visitors <span class="float-right">+5.2% <i class="zmdi zmdi-long-arrow-up"></i></span></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-lg-6 col-xl-3">
+            <div class="card gradient-ibiza">
+                <div class="card-body">
+                    <h5 class="text-white mb-0">5630 <span class="float-right"><i class="fa fa-envira"></i></span></h5>
+                    <div class="progress my-3" style="height:3px;">
+                        <div class="progress-bar" style="width:55%"></div>
+                    </div>
+                    <p class="mb-0 text-white small-font">Messages <span class="float-right">+2.2% <i class="zmdi zmdi-long-arrow-up"></i></span></p>
+                </div>
+            </div>
+        </div>
+    </div><!--End Row-->
+
+
     <div class="row">
-        <div class="col-md-6 col-xl-4">
-            <div class="card mb-3 widget-content bg-midnight-bloom">
-                <div class="widget-content-wrapper text-white">
-                    <div class="widget-content-left">
-                        <div class="widget-heading">Total Orders</div>
-                        <div class="widget-subheading">Last year expenses</div>
+        <div class="col-12 col-lg-8 col-xl-8">
+            <div class="card">
+                <div class="card-header">Site Traffic
+                    <div class="card-action">
+                        <div class="dropdown">
+                            <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown">
+                                <i class="icon-options"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <a class="dropdown-item" href="javascript:void();">Action</a>
+                                <a class="dropdown-item" href="javascript:void();">Another action</a>
+                                <a class="dropdown-item" href="javascript:void();">Something else here</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="javascript:void();">Separated link</a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="widget-content-right">
-                        <div class="widget-numbers text-white"><span>1896</span></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 col-xl-4">
-            <div class="card mb-3 widget-content bg-arielle-smile">
-                <div class="widget-content-wrapper text-white">
-                    <div class="widget-content-left">
-                        <div class="widget-heading">Clients</div>
-                        <div class="widget-subheading">Total Clients Profit</div>
-                    </div>
-                    <div class="widget-content-right">
-                        <div class="widget-numbers text-white"><span>$ 568</span></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 col-xl-4">
-            <div class="card mb-3 widget-content bg-grow-early">
-                <div class="widget-content-wrapper text-white">
-                    <div class="widget-content-left">
-                        <div class="widget-heading">Followers</div>
-                        <div class="widget-subheading">People Interested</div>
-                    </div>
-                    <div class="widget-content-right">
-                        <div class="widget-numbers text-white"><span>46%</span></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="d-xl-none d-lg-block col-md-6 col-xl-4">
-            <div class="card mb-3 widget-content bg-premium-dark">
-                <div class="widget-content-wrapper text-white">
-                    <div class="widget-content-left">
-                        <div class="widget-heading">Products Sold</div>
-                        <div class="widget-subheading">Revenue streams</div>
-                    </div>
-                    <div class="widget-content-right">
-                        <div class="widget-numbers text-warning"><span>$14M</span></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    {{--<div class="row">
-        <div class="col-md-12 col-lg-6">
-            <div class="mb-3 card">
-                <div class="card-header-tab card-header-tab-animation card-header">
-                    <div class="card-header-title">
-                        <i class="header-icon lnr-apartment icon-gradient bg-love-kiss"> </i>
-                        Sales Report
-                    </div>
-                    <ul class="nav">
-                        <li class="nav-item"><a href="javascript:void(0);" class="active nav-link">Last</a></li>
-                        <li class="nav-item"><a href="javascript:void(0);" class="nav-link second-tab-toggle">Current</a></li>
-                    </ul>
                 </div>
                 <div class="card-body">
-                    <div class="tab-content">
-                        <div class="tab-pane fade show active" id="tabs-eg-77">
-                            <div class="card mb-3 widget-chart widget-chart2 text-left w-100">
-                                <div class="widget-chat-wrapper-outer">
-                                    <div class="widget-chart-wrapper widget-chart-wrapper-lg opacity-10 m-0">
-                                        <canvas id="canvas"></canvas>
-                                    </div>
-                                </div>
-                            </div>
-                            <h6 class="text-muted text-uppercase font-size-md opacity-5 font-weight-normal">Top Authors</h6>
-                            <div class="scroll-area-sm">
-                                <div class="scrollbar-container">
-                                    <ul class="rm-list-borders rm-list-borders-scroll list-group list-group-flush">
-                                        <li class="list-group-item">
-                                            <div class="widget-content p-0">
-                                                <div class="widget-content-wrapper">
-                                                    <div class="widget-content-left mr-3">
-                                                        <img width="42" class="rounded-circle" src="assets/images/avatars/9.jpg" alt="">
-                                                    </div>
-                                                    <div class="widget-content-left">
-                                                        <div class="widget-heading">Ella-Rose Henry</div>
-                                                        <div class="widget-subheading">Web Developer</div>
-                                                    </div>
-                                                    <div class="widget-content-right">
-                                                        <div class="font-size-xlg text-muted">
-                                                            <small class="opacity-5 pr-1">$</small>
-                                                            <span>129</span>
-                                                            <small class="text-danger pl-2">
-                                                                <i class="fa fa-angle-down"></i>
-                                                            </small>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <div class="widget-content p-0">
-                                                <div class="widget-content-wrapper">
-                                                    <div class="widget-content-left mr-3">
-                                                        <img width="42" class="rounded-circle" src="assets/images/avatars/5.jpg" alt="">
-                                                    </div>
-                                                    <div class="widget-content-left">
-                                                        <div class="widget-heading">Ruben Tillman</div>
-                                                        <div class="widget-subheading">UI Designer</div>
-                                                    </div>
-                                                    <div class="widget-content-right">
-                                                        <div class="font-size-xlg text-muted">
-                                                            <small class="opacity-5 pr-1">$</small>
-                                                            <span>54</span>
-                                                            <small class="text-success pl-2">
-                                                                <i class="fa fa-angle-up"></i>
-                                                            </small>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <div class="widget-content p-0">
-                                                <div class="widget-content-wrapper">
-                                                    <div class="widget-content-left mr-3">
-                                                        <img width="42" class="rounded-circle" src="assets/images/avatars/4.jpg" alt="">
-                                                    </div>
-                                                    <div class="widget-content-left">
-                                                        <div class="widget-heading">Vinnie Wagstaff</div>
-                                                        <div class="widget-subheading">Java Programmer</div>
-                                                    </div>
-                                                    <div class="widget-content-right">
-                                                        <div class="font-size-xlg text-muted">
-                                                            <small class="opacity-5 pr-1">$</small>
-                                                            <span>429</span>
-                                                            <small class="text-warning pl-2">
-                                                                <i class="fa fa-dot-circle"></i>
-                                                            </small>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <div class="widget-content p-0">
-                                                <div class="widget-content-wrapper">
-                                                    <div class="widget-content-left mr-3">
-                                                        <img width="42" class="rounded-circle" src="assets/images/avatars/3.jpg" alt="">
-                                                    </div>
-                                                    <div class="widget-content-left">
-                                                        <div class="widget-heading">Ella-Rose Henry</div>
-                                                        <div class="widget-subheading">Web Developer</div>
-                                                    </div>
-                                                    <div class="widget-content-right">
-                                                        <div class="font-size-xlg text-muted">
-                                                            <small class="opacity-5 pr-1">$</small>
-                                                            <span>129</span>
-                                                            <small class="text-danger pl-2">
-                                                                <i class="fa fa-angle-down"></i>
-                                                            </small>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <div class="widget-content p-0">
-                                                <div class="widget-content-wrapper">
-                                                    <div class="widget-content-left mr-3">
-                                                        <img width="42" class="rounded-circle" src="assets/images/avatars/2.jpg" alt="">
-                                                    </div>
-                                                    <div class="widget-content-left">
-                                                        <div class="widget-heading">Ruben Tillman</div>
-                                                        <div class="widget-subheading">UI Designer</div>
-                                                    </div>
-                                                    <div class="widget-content-right">
-                                                        <div class="font-size-xlg text-muted">
-                                                            <small class="opacity-5 pr-1">$</small>
-                                                            <span>54</span>
-                                                            <small class="text-success pl-2">
-                                                                <i class="fa fa-angle-up"></i>
-                                                            </small>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
+                    <ul class="list-inline">
+                        <li class="list-inline-item"><i class="fa fa-circle mr-2" style="color: #14abef"></i>New Visitor</li>
+                        <li class="list-inline-item"><i class="fa fa-circle mr-2" style="color: #ade2f9"></i>Old Visitor</li>
+                    </ul>
+                    <div class="chart-container-1">
+                        <canvas id="chart1"></canvas>
+                    </div>
+                </div>
+
+                <div class="row m-0 row-group text-center border-top border-light-3">
+                    <div class="col-12 col-lg-4">
+                        <div class="p-3">
+                            <h5 class="mb-0">45.87M</h5>
+                            <small class="mb-0">Overall Visitor <span> <i class="fa fa-arrow-up"></i> 2.43%</span></small>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4">
+                        <div class="p-3">
+                            <h5 class="mb-0">15:48</h5>
+                            <small class="mb-0">Visitor Duration <span> <i class="fa fa-arrow-up"></i> 12.65%</span></small>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-4">
+                        <div class="p-3">
+                            <h5 class="mb-0">245.65</h5>
+                            <small class="mb-0">Pages/Visit <span> <i class="fa fa-arrow-up"></i> 5.62%</span></small>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
-        <div class="col-md-12 col-lg-6">
-            <div class="mb-3 card">
-                <div class="card-header-tab card-header">
-                    <div class="card-header-title">
-                        <i class="header-icon lnr-rocket icon-gradient bg-tempting-azure"> </i>
-                        Bandwidth Reports
-                    </div>
-                    <div class="btn-actions-pane-right">
-                        <div class="nav">
-                            <a href="javascript:void(0);" class="border-0 btn-pill btn-wide btn-transition active btn btn-outline-alternate">Tab 1</a>
-                            <a href="javascript:void(0);" class="ml-1 btn-pill btn-wide border-0 btn-transition  btn btn-outline-alternate second-tab-toggle-alt">Tab 2</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="tab-content">
-                    <div class="tab-pane fade active show" id="tab-eg-55">
-                        <div class="widget-chart p-3">
-                            <div style="height: 350px">
-                                <canvas id="line-chart"></canvas>
-                            </div>
-                            <div class="widget-chart-content text-center mt-5">
-                                <div class="widget-description mt-0 text-warning">
-                                    <i class="fa fa-arrow-left"></i>
-                                    <span class="pl-1">175.5%</span>
-                                    <span class="text-muted opacity-8 pl-1">increased server resources</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="pt-2 card-body">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="widget-content">
-                                        <div class="widget-content-outer">
-                                            <div class="widget-content-wrapper">
-                                                <div class="widget-content-left">
-                                                    <div class="widget-numbers fsize-3 text-muted">63%</div>
-                                                </div>
-                                                <div class="widget-content-right">
-                                                    <div class="text-muted opacity-6">Generated Leads</div>
-                                                </div>
-                                            </div>
-                                            <div class="widget-progress-wrapper mt-1">
-                                                <div class="progress-bar-sm progress-bar-animated-alt progress">
-                                                    <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="63" aria-valuemin="0" aria-valuemax="100" style="width: 63%;"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="widget-content">
-                                        <div class="widget-content-outer">
-                                            <div class="widget-content-wrapper">
-                                                <div class="widget-content-left">
-                                                    <div class="widget-numbers fsize-3 text-muted">32%</div>
-                                                </div>
-                                                <div class="widget-content-right">
-                                                    <div class="text-muted opacity-6">Submitted Tickers</div>
-                                                </div>
-                                            </div>
-                                            <div class="widget-progress-wrapper mt-1">
-                                                <div class="progress-bar-sm progress-bar-animated-alt progress">
-                                                    <div class="progress-bar bg-success" role="progressbar" aria-valuenow="32" aria-valuemin="0" aria-valuemax="100" style="width: 32%;"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="widget-content">
-                                        <div class="widget-content-outer">
-                                            <div class="widget-content-wrapper">
-                                                <div class="widget-content-left">
-                                                    <div class="widget-numbers fsize-3 text-muted">71%</div>
-                                                </div>
-                                                <div class="widget-content-right">
-                                                    <div class="text-muted opacity-6">Server Allocation</div>
-                                                </div>
-                                            </div>
-                                            <div class="widget-progress-wrapper mt-1">
-                                                <div class="progress-bar-sm progress-bar-animated-alt progress">
-                                                    <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="71" aria-valuemin="0" aria-valuemax="100" style="width: 71%;"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="widget-content">
-                                        <div class="widget-content-outer">
-                                            <div class="widget-content-wrapper">
-                                                <div class="widget-content-left">
-                                                    <div class="widget-numbers fsize-3 text-muted">41%</div>
-                                                </div>
-                                                <div class="widget-content-right">
-                                                    <div class="text-muted opacity-6">Generated Leads</div>
-                                                </div>
-                                            </div>
-                                            <div class="widget-progress-wrapper mt-1">
-                                                <div class="progress-bar-sm progress-bar-animated-alt progress">
-                                                    <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="41" aria-valuemin="0" aria-valuemax="100" style="width: 41%;"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+
+        <div class="col-12 col-lg-4 col-xl-4">
+            <div class="card">
+                <div class="card-header">Weekly sales
+                    <div class="card-action">
+                        <div class="dropdown">
+                            <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown">
+                                <i class="icon-options"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <a class="dropdown-item" href="javascript:void();">Action</a>
+                                <a class="dropdown-item" href="javascript:void();">Another action</a>
+                                <a class="dropdown-item" href="javascript:void();">Something else here</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="javascript:void();">Separated link</a>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>--}}
-    <div class="row">
-        <div class="col-md-12">
-            <div class="main-card mb-3 card">
-                <div class="card-header">Active Users
-                    <div class="btn-actions-pane-right">
-                        <div role="group" class="btn-group-sm btn-group">
-                            <button class="active btn btn-focus">Last Week</button>
-                            <button class="btn btn-focus">All Month</button>
-                        </div>
+                <div class="card-body">
+                    <div class="chart-container-2">
+                        <canvas id="chart2"></canvas>
                     </div>
                 </div>
                 <div class="table-responsive">
-                    <table class="align-middle mb-0 table table-borderless table-striped table-hover">
-                        <thead>
-                        <tr>
-                            <th class="text-center">#</th>
-                            <th>Name</th>
-                            <th class="text-center">City</th>
-                            <th class="text-center">Status</th>
-                            <th class="text-center">Actions</th>
-                        </tr>
-                        </thead>
+                    <table class="table align-items-center">
                         <tbody>
                         <tr>
-                            <td class="text-center text-muted">#345</td>
-                            <td>
-                                <div class="widget-content p-0">
-                                    <div class="widget-content-wrapper">
-                                        <div class="widget-content-left mr-3">
-                                            <div class="widget-content-left">
-                                                <img width="40" class="rounded-circle" src="assets/images/avatars/4.jpg" alt="">
-                                            </div>
-                                        </div>
-                                        <div class="widget-content-left flex2">
-                                            <div class="widget-heading">John Doe</div>
-                                            <div class="widget-subheading opacity-7">Web Developer</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="text-center">Madrid</td>
-                            <td class="text-center">
-                                <div class="badge badge-warning">Pending</div>
-                            </td>
-                            <td class="text-center">
-                                <button type="button" id="PopoverCustomT-1" class="btn btn-primary btn-sm">Details</button>
-                            </td>
+                            <td><i class="fa fa-circle mr-2" style="color: #14abef"></i> Direct</td>
+                            <td>$5856</td>
+                            <td>+55%</td>
                         </tr>
                         <tr>
-                            <td class="text-center text-muted">#347</td>
-                            <td>
-                                <div class="widget-content p-0">
-                                    <div class="widget-content-wrapper">
-                                        <div class="widget-content-left mr-3">
-                                            <div class="widget-content-left">
-                                                <img width="40" class="rounded-circle" src="assets/images/avatars/3.jpg" alt="">
-                                            </div>
-                                        </div>
-                                        <div class="widget-content-left flex2">
-                                            <div class="widget-heading">Ruben Tillman</div>
-                                            <div class="widget-subheading opacity-7">Etiam sit amet orci eget</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="text-center">Berlin</td>
-                            <td class="text-center">
-                                <div class="badge badge-success">Completed</div>
-                            </td>
-                            <td class="text-center">
-                                <button type="button" id="PopoverCustomT-2" class="btn btn-primary btn-sm">Details</button>
-                            </td>
+                            <td><i class="fa fa-circle mr-2" style="color: #02ba5a"></i>Affiliate</td>
+                            <td>$2602</td>
+                            <td>+25%</td>
                         </tr>
                         <tr>
-                            <td class="text-center text-muted">#321</td>
-                            <td>
-                                <div class="widget-content p-0">
-                                    <div class="widget-content-wrapper">
-                                        <div class="widget-content-left mr-3">
-                                            <div class="widget-content-left">
-                                                <img width="40" class="rounded-circle" src="assets/images/avatars/2.jpg" alt="">
-                                            </div>
-                                        </div>
-                                        <div class="widget-content-left flex2">
-                                            <div class="widget-heading">Elliot Huber</div>
-                                            <div class="widget-subheading opacity-7">Lorem ipsum dolor sic</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="text-center">London</td>
-                            <td class="text-center">
-                                <div class="badge badge-danger">In Progress</div>
-                            </td>
-                            <td class="text-center">
-                                <button type="button" id="PopoverCustomT-3" class="btn btn-primary btn-sm">Details</button>
-                            </td>
+                            <td><i class="fa fa-circle mr-2" style="color: #d13adf"></i>E-mail</td>
+                            <td>$1802</td>
+                            <td>+15%</td>
                         </tr>
                         <tr>
-                            <td class="text-center text-muted">#55</td>
-                            <td>
-                                <div class="widget-content p-0">
-                                    <div class="widget-content-wrapper">
-                                        <div class="widget-content-left mr-3">
-                                            <div class="widget-content-left">
-                                                <img width="40" class="rounded-circle" src="assets/images/avatars/1.jpg" alt=""></div>
-                                        </div>
-                                        <div class="widget-content-left flex2">
-                                            <div class="widget-heading">Vinnie Wagstaff</div>
-                                            <div class="widget-subheading opacity-7">UI Designer</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="text-center">Amsterdam</td>
-                            <td class="text-center">
-                                <div class="badge badge-info">On Hold</div>
-                            </td>
-                            <td class="text-center">
-                                <button type="button" id="PopoverCustomT-4" class="btn btn-primary btn-sm">Details</button>
-                            </td>
+                            <td><i class="fa fa-circle mr-2" style="color: #fba540"></i>Other</td>
+                            <td>$1105</td>
+                            <td>+5%</td>
                         </tr>
                         </tbody>
                     </table>
                 </div>
-                <div class="d-block text-center card-footer">
-                    <button class="mr-2 btn-icon btn-icon-only btn btn-outline-danger"><i class="pe-7s-trash btn-icon-wrapper"> </i></button>
-                    <button class="btn-wide btn btn-success">Save</button>
+            </div>
+        </div>
+    </div><!--End Row-->
+
+    <div class="row">
+        <div class="col-12 col-lg-6 col-xl-4">
+            <div class="card">
+                <div class="card-body">
+                    <div class="media align-items-center">
+                        <div class="w_chart easy-dash-chart1" data-percent="60">
+                            <span class="w_percent"></span>
+                        </div>
+                        <div class="media-body ml-3">
+                            <h6 class="mb-0">Facebook Followers</h6>
+                            <small class="mb-0">22.14% <i class="fa fa-arrow-up"></i> Since Last Week</small>
+                        </div>
+                        <i class="fa fa-facebook text-facebook text-right fa-2x"></i>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+        <div class="col-12 col-lg-6 col-xl-4">
+            <div class="card">
+                <div class="card-body">
+                    <div class="media align-items-center">
+                        <div class="w_chart easy-dash-chart2" data-percent="65">
+                            <span class="w_percent"></span>
+                        </div>
+                        <div class="media-body ml-3">
+                            <h6 class="mb-0">Twitter Tweets</h6>
+                            <small class="mb-0">32.15% <i class="fa fa-arrow-up"></i> Since Last Week</small>
+                        </div>
+                        <i class="fa fa-twitter text-twitter text-right fa-2x"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-lg-12 col-xl-4">
+            <div class="card">
+                <div class="card-body">
+                    <div class="media align-items-center">
+                        <div class="w_chart easy-dash-chart3" data-percent="75">
+                            <span class="w_percent"></span>
+                        </div>
+                        <div class="media-body ml-3">
+                            <h6 class="mb-0">Youtube Subscribers</h6>
+                            <small class="mb-0">58.24% <i class="fa fa-arrow-up"></i> Since Last Week</small>
+                        </div>
+                        <i class="fa fa-youtube text-youtube fa-2x"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!--End Row-->
+
+
+    <div class="row">
+        <div class="col-12 col-lg-12 col-xl-6">
+            <div class="card">
+                <div class="card-header">World Selling Region
+                    <div class="card-action">
+                        <div class="dropdown">
+                            <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown">
+                                <i class="icon-options"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <a class="dropdown-item" href="javascript:void();">Action</a>
+                                <a class="dropdown-item" href="javascript:void();">Another action</a>
+                                <a class="dropdown-item" href="javascript:void();">Something else here</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="javascript:void();">Separated link</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div id="dashboard-map" style="height: 275px;"></div>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-striped align-items-center">
+                        <thead>
+                        <tr>
+                            <th>Country</th>
+                            <th>Income</th>
+                            <th>Trend</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td><i class="flag-icon flag-icon-ca mr-2"></i> USA</td>
+                            <td>4,586$</td>
+                            <td><span id="trendchart1"></span></td>
+                        </tr>
+                        <tr>
+                            <td><i class="flag-icon flag-icon-us mr-2"></i>Canada</td>
+                            <td>2,089$</td>
+                            <td><span id="trendchart2"></span></td>
+                        </tr>
+
+                        <tr>
+                            <td><i class="flag-icon flag-icon-in mr-2"></i>India</td>
+                            <td>3,039$</td>
+                            <td><span id="trendchart3"></span></td>
+                        </tr>
+
+                        <tr>
+                            <td><i class="flag-icon flag-icon-gb mr-2"></i>UK</td>
+                            <td>2,309$</td>
+                            <td><span id="trendchart4"></span></td>
+                        </tr>
+
+                        <tr>
+                            <td><i class="flag-icon flag-icon-de mr-2"></i>Germany</td>
+                            <td>7,209$</td>
+                            <td><span id="trendchart5"></span></td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-lg-12 col-xl-6">
+            <div class="row">
+                <div class="col-12 col-lg-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <p>Page Views</p>
+                            <h4 class="mb-0">8,293 <small class="small-font">5.2% <i class="zmdi zmdi-long-arrow-up"></i></small></h4>
+                        </div>
+                        <div class="chart-container-3">
+                            <canvas id="chart3"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <p>Total Clicks</p>
+                            <h4 class="mb-0">7,493 <small class="small-font">1.4% <i class="zmdi zmdi-long-arrow-up"></i></small></h4>
+                        </div>
+                        <div class="chart-container-3">
+                            <canvas id="chart4"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <p class="mb-4">Total Downloads</p>
+                            <input class="knob" data-width="175" data-height="175" data-readOnly="true" data-thickness=".2" data-angleoffset="90" data-linecap="round" data-bgcolor="rgba(0, 0, 0, 0.08)" data-fgcolor="#843cf7" data-max="15000" value="8550"/>
+                            <hr>
+                            <p class="mb-0 small-font text-center">3.4% <i class="zmdi zmdi-long-arrow-up"></i> since yesterday</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <p>Device Storage</p>
+                            <h4 class="mb-3">42620/50000</h4>
+                            <hr>
+                            <div class="progress-wrapper mb-4">
+                                <p>Documents <span class="float-right">12GB</span></p>
+                                <div class="progress" style="height:5px;">
+                                    <div class="progress-bar bg-success" style="width:80%"></div>
+                                </div>
+                            </div>
+
+                            <div class="progress-wrapper mb-4">
+                                <p>Images <span class="float-right">10GB</span></p>
+                                <div class="progress" style="height:5px;">
+                                    <div class="progress-bar bg-danger" style="width:60%"></div>
+                                </div>
+                            </div>
+
+                            <div class="progress-wrapper mb-4">
+                                <p>Mails <span class="float-right">5GB</span></p>
+                                <div class="progress" style="height:5px;">
+                                    <div class="progress-bar bg-primary" style="width:40%"></div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div><!--End Row-->
+
+
+    <div class="row">
+        <div class="col-12 col-lg-6 col-xl-4">
+            <div class="card">
+                <div class="card-body">
+                    <p>Total Earning</p>
+                    <h4 class="mb-0">287,493$</h4>
+                    <small>1.4% <i class="zmdi zmdi-long-arrow-up"></i> Since Last Month</small>
+                    <hr>
+                    <p>Total Sales</p>
+                    <h4 class="mb-0">87,493</h4>
+                    <small>5.43% <i class="zmdi zmdi-long-arrow-up"></i> Since Last Month</small>
+                    <div class="mt-5">
+                        <div class="chart-container-4">
+                            <canvas id="chart5"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-12 col-lg-6 col-xl-8">
+            <div class="card">
+                <div class="card-header">Customer Review
+                    <div class="card-action">
+                        <div class="dropdown">
+                            <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown">
+                                <i class="icon-options"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <a class="dropdown-item" href="javascript:void();">Action</a>
+                                <a class="dropdown-item" href="javascript:void();">Another action</a>
+                                <a class="dropdown-item" href="javascript:void();">Something else here</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="javascript:void();">Separated link</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <div class="media align-items-center">
+                            <img src="https://via.placeholder.com/110x110" alt="user avatar" class="customer-img rounded-circle">
+                            <div class="media-body ml-3">
+                                <h6 class="mb-0">iPhone X <small class="ml-4">08.34 AM</small></h6>
+                                <p class="mb-0 small-font">Sara Jhon : This i svery Nice phone in low budget.</p>
+                            </div>
+                            <div class="star">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star text-warning"></i>
+                                <i class="fa fa-star text-warning"></i>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="media align-items-center">
+                            <img src="https://via.placeholder.com/110x110" alt="user avatar" class="customer-img rounded-circle">
+                            <div class="media-body ml-3">
+                                <h6 class="mb-0">Air Pod <small class="ml-4">05.26 PM</small></h6>
+                                <p class="mb-0 small-font">Danish Josh : The brand apple is original !</p>
+                            </div>
+                            <div class="star">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star text-warning"></i>
+                                <i class="fa fa-star text-warning"></i>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="media align-items-center">
+                            <img src="https://via.placeholder.com/110x110" alt="user avatar" class="customer-img rounded-circle">
+                            <div class="media-body ml-3">
+                                <h6 class="mb-0">Mackbook Pro <small class="ml-4">06.45 AM</small></h6>
+                                <p class="mb-0 small-font">Jhon Doe : Excllent product and awsome quality</p>
+                            </div>
+                            <div class="star">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star text-warning"></i>
+                                <i class="fa fa-star text-warning"></i>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="media align-items-center">
+                            <img src="https://via.placeholder.com/110x110" alt="user avatar" class="customer-img rounded-circle">
+                            <div class="media-body ml-3">
+                                <h6 class="mb-0">Air Pod <small class="ml-4">08.34 AM</small></h6>
+                                <p class="mb-0 small-font">Christine : The brand apple is original !</p>
+                            </div>
+                            <div class="star">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star text-warning"></i>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="media align-items-center">
+                            <img src="https://via.placeholder.com/110x110" alt="user avatar" class="customer-img rounded-circle">
+                            <div class="media-body ml-3">
+                                <h6 class="mb-0">Mackbook <small class="ml-4">08.34 AM</small></h6>
+                                <p class="mb-0 small-font">Michle : The brand apple is original !</p>
+                            </div>
+                            <div class="star">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star text-warning"></i>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div><!--End Row-->
+
+    <div class="row">
+        <div class="col-12 col-lg-12">
+            <div class="card">
+                <div class="card-header border-0">Recent Order Tables
+                    <div class="card-action">
+                        <div class="dropdown">
+                            <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown">
+                                <i class="icon-options"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <a class="dropdown-item" href="javascript:void();">Action</a>
+                                <a class="dropdown-item" href="javascript:void();">Another action</a>
+                                <a class="dropdown-item" href="javascript:void();">Something else here</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="javascript:void();">Separated link</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <table class="table align-items-center table-flush">
+                        <thead>
+                        <tr>
+                            <th>Photo</th>
+                            <th>Product</th>
+                            <th>Amount</th>
+                            <th>Status</th>
+                            <th>Completion</th>
+                            <th>Date</th>
+                        </tr>
+                        </thead>
+                        <tbody><tr>
+                            <td>
+                                <img alt="Image placeholder" src="https://via.placeholder.com/110x110" class="product-img">
+                            </td>
+                            <td>Headphone GL</td>
+                            <td>$1,840 USD</td>
+                            <td>
+                      <span class="badge-dot">
+                        <i class="bg-danger"></i> pending
+                      </span>
+                            </td>
+                            <td>
+                                <div class="progress shadow" style="height: 4px;">
+                                    <div class="progress-bar gradient-ibiza" role="progressbar" style="width: 60%"></div>
+                                </div>
+                            </td>
+                            <td>10 July 2018</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img alt="Image placeholder" src="https://via.placeholder.com/110x110" class="product-img">
+                            </td>
+                            <td>Clasic Shoes</td>
+                            <td>$1,520 USD</td>
+                            <td>
+                      <span class="badge-dot">
+                        <i class="bg-success"></i> completed
+                      </span>
+                            </td>
+                            <td>
+                                <div class="progress shadow" style="height: 4px;">
+                                    <div class="progress-bar gradient-ohhappiness" role="progressbar" style="width: 100%"></div>
+                                </div>
+                            </td>
+                            <td>12 July 2018</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img alt="Image placeholder" src="https://via.placeholder.com/110x110" class="product-img">
+                            </td>
+                            <td>Hand Watch</td>
+                            <td>$1,620 USD</td>
+                            <td>
+                      <span class="badge-dot">
+                        <i class="bg-warning"></i> delayed
+                      </span>
+                            </td>
+                            <td>
+                                <div class="progress shadow" style="height: 4px;">
+                                    <div class="progress-bar gradient-orange" role="progressbar" style="width: 70%"></div>
+                                </div>
+                            </td>
+                            <td>14 July 2018</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img alt="Image placeholder" src="https://via.placeholder.com/110x110" class="product-img">
+                            </td>
+                            <td>Hand Camera</td>
+                            <td>$2,220 USD</td>
+                            <td>
+                      <span class="badge-dot">
+                        <i class="bg-info"></i> on schedule
+                      </span>
+                            </td>
+                            <td>
+                                <div class="progress shadow" style="height: 4px;">
+                                    <div class="progress-bar gradient-scooter" role="progressbar" style="width: 85%"></div>
+                                </div>
+                            </td>
+                            <td>16 July 2018</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img alt="Image placeholder" src="https://via.placeholder.com/110x110" class="product-img">
+                            </td>
+                            <td>Iphone-X Pro</td>
+                            <td>$9,890 USD</td>
+                            <td>
+                      <span class="badge-dot">
+                        <i class="bg-success"></i> completed
+                      </span>
+                            </td>
+                            <td>
+                                <div class="progress shadow" style="height: 4px;">
+                                    <div class="progress-bar gradient-ohhappiness" role="progressbar" style="width: 100%"></div>
+                                </div>
+                            </td>
+                            <td>17 July 2018</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <img alt="Image placeholder" src="https://via.placeholder.com/110x110" class="product-img">
+                            </td>
+                            <td>Ladies Purse</td>
+                            <td>$3,420 USD</td>
+                            <td>
+                      <span class="badge-dot">
+                        <i class="bg-danger"></i> pending
+                      </span>
+                            </td>
+                            <td>
+                                <div class="progress shadow" style="height: 4px;">
+                                    <div class="progress-bar gradient-ibiza" role="progressbar" style="width: 80%"></div>
+                                </div>
+                            </td>
+                            <td>18 July 2018</td>
+                        </tr>
+                        </tbody></table>
+                </div>
+            </div>
+        </div>
+    </div><!--End Row-->
+
+    <!--End Dashboard Content-->
 @endsection
