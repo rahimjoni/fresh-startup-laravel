@@ -17,7 +17,7 @@
                         </div>
                         <div class="col-md-6 text-right">
                             <div class="dataTables_length" id="default-datatable_length">
-                                <a href="" class="btn btn-info" data-toggle="tooltip" title="Add Item">
+                                <a href="{{route('admin.roles.create')}}" class="btn btn-info" data-toggle="tooltip" title="Add Item">
                                     <i class="fa fa-plus-square"></i> Add new
                                 </a>
                             </div>
