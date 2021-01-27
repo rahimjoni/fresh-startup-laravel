@@ -26,6 +26,7 @@
     <link href="{{asset('backend/assets/css/app-style.css')}}" rel="stylesheet"/>
     <!-- skins CSS-->
     <link href="{{asset('backend/assets/css/skins.css')}}" rel="stylesheet"/>
+    <link href="{{ asset('css/iziToast.css') }}" rel="stylesheet">
     @stack('css')
 </head>
 
@@ -102,7 +103,10 @@
 <script src="{{asset('backend/assets/plugins/sparkline-charts/jquery.sparkline.min.js')}}"></script>
 <script src="{{asset('backend/assets/plugins/jquery-knob/excanvas.js')}}"></script>
 <script src="{{asset('backend/assets/plugins/jquery-knob/jquery.knob.js')}}"></script>
-
+<script src="{{asset('js/app.js')}}"></script>
+<script src="{{asset('js/script.js')}}"></script>
+<script src="{{ asset('js/iziToast.js') }}"></script>
+@include('vendor.lara-izitoast.toast')
 @stack('js')
 <script>
     $(function() {

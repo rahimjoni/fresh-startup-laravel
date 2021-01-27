@@ -27,23 +27,32 @@
                         <div class="col-md-12">
                             <form method="POST" action="{{ isset($role)? route('admin.roles.update',$role->id) : route('admin.roles.store') }}" autocomplete="off">
                                 @csrf
+                                @isset($role)
+                                    @method('PUT')
+                                    @endisset
                                 <div class="form-group row">
                                     <label for="name" class="col-md-2 col-form-label text-md-right">{{ __('Name') }}</label>
 
                                     <div class="col-md-10">
-                                        <input id="name" type="name" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ $role->name ?? old('name') }}" required autocomplete="name" autofocus>
-
+                                        <input id="name" type="name" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ $role->name ?? old('name') }}" autocomplete="name" autofocus>
                                         @error('name')
                                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
-                                    </span>
+                                        </span>
                                         @enderror
                                     </div>
                                 </div>
                                 <br><br>
                                 <div class="text-center">
-                                    <button class="btn btn-info"> Manage Permission </>
+                                    <strong class=""> Manage Permission </strong><hr>
+
+                                    @error('permissions')
+                                    <span class="text-danger" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div><br>
+
 
                                 <div class="form-row">
                                     <div class="mb-3 ml-4">
@@ -67,7 +76,16 @@
                                                             @foreach($module->permissions as $key=>$permission)
                                                                 <div class="">
                                                                     <div class="custom-control custom-checkbox mb-2">
-                                                                        <input type="checkbox" class="custom-control-input" id="permission-{{$permission->id}}" name="permissions[]">
+                                                                        <input type="checkbox" class="custom-control-input"
+                                                                               id="permission-{{$permission->id}}"
+                                                                               name="permissions[]"
+                                                                               value="{{$permission->id}}"
+                                                                               @isset($role)
+                                                                                   @foreach($role->permissions as $rPermissions)
+                                                                                       {{$permission->id == $rPermissions->id? 'checked': ''}}
+                                                                                       @endforeach
+                                                                                   @endisset
+                                                                        >
                                                                         <label for="permission-{{$permission->id}}" class="custom-control-label">{{$permission->name}}</label>
                                                                     </div>
                                                                 </div>
@@ -87,7 +105,11 @@
 
                                 <div class="form-group row">
                                     <div class="col-sm-12">
-                                        <button type="submit" class="btn btn-success px-4 ">Save</button>
+                                        @isset($role)
+                                            <button type="submit" class="btn btn-success px-4 ">Update</button>
+                                            @else
+                                            <button type="submit" class="btn btn-success px-4 ">Save</button>
+                                        @endisset
                                     </div>
                                 </div>
                             </form>
