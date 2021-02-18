@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Module;
 use App\Models\Role;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Str;
 
 class RoleController extends Controller
@@ -17,6 +18,7 @@ class RoleController extends Controller
      */
     public function index()
     {
+        Gate::authorize('app.roles.index');
         $pageInfo = [
             'pageTitle' => 'Roles',
             'menu' => 'roles'
@@ -32,6 +34,7 @@ class RoleController extends Controller
      */
     public function create()
     {
+        Gate::authorize('app.roles.create');
         $pageInfo = [
             'pageTitle' => 'Roles Create',
             'menu' => 'roles'
@@ -81,6 +84,7 @@ class RoleController extends Controller
      */
     public function edit(Role $role)
     {
+        Gate::authorize('app.roles.edit');
         $pageInfo = [
             'pageTitle' => 'Roles Edit',
             'menu' => 'roles'
@@ -102,7 +106,7 @@ class RoleController extends Controller
             'name'      =>$request->name,
             'slug'      =>Str::slug($request->name),
         ]);
-            $role->permissions()->sync($request->input('permissions'),[]);
+            $role->permissions()->sync($request->input('permissions'));
         notify()->success('Role Successfully Updated.', 'Updated');
         return redirect()->route('admin.roles.index');
     }
@@ -115,7 +119,7 @@ class RoleController extends Controller
      */
     public function destroy(Role $role)
     {
-        /*Gate::authorize('admin.roles.destroy');*/
+        Gate::authorize('app.roles.destroy');
 
         if ($role->deletable) {
             $role->delete();

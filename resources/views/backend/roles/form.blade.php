@@ -7,21 +7,27 @@
 @section('content')
     <div class="row">
         <div class="col-lg-12">
-            <div class="card">
-                <div class="card-header">
-                    <div class="row">
-                        <div class="col-md-6 float-left">
-                            <i class="fa fa-table"></i> {{$pageTitle ? $pageTitle:''}}
-                        </div>
-                        <div class="col-md-6 text-right">
-                            <div class="dataTables_length" id="default-datatable_length">
-                                <a href="{{route('admin.roles.index')}}" class="btn btn-info" data-toggle="tooltip" title="Back to List">
-                                    <i class="fa fa-arrow-left"></i> Back
-                                </a>
-                            </div>
-                        </div>
+            <!-- Breadcrumb-->
+            <div class="row pt-2 pb-2">
+                <div class="col-sm-9">
+                    <h4 class="page-title">{{$pageTitle ? $pageTitle:''}}</h4>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('admin.roles.index') }}">Roles</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Create Role</li>
+                    </ol>
+                </div>
+                <div class="col-md-3 text-right">
+                    <div class="dataTables_length" id="default-datatable_length">
+                        <a href="{{route('admin.roles.index')}}" class="btn btn-info" data-toggle="tooltip" title="Back to List">
+                            <i class="fa fa-arrow-left"></i> Back
+                        </a>
                     </div>
                 </div>
+            </div>
+            <!-- End Breadcrumb-->
+            <div class="card">
+
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-12">
@@ -33,7 +39,7 @@
                                 <div class="form-group row">
                                     <label for="name" class="col-md-2 col-form-label text-md-right">{{ __('Name') }}</label>
 
-                                    <div class="col-md-10">
+                                    <div class="col-md-8">
                                         <input id="name" type="name" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ $role->name ?? old('name') }}" autocomplete="name" autofocus>
                                         @error('name')
                                         <span class="invalid-feedback" role="alert">
