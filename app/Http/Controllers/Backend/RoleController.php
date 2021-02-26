@@ -61,6 +61,7 @@ class RoleController extends Controller
             'name'      =>$request->name,
             'slug'      =>Str::slug($request->name),
         ])->permissions()->sync($request->input('permissions'),[]);
+
         notify()->success('Role Successfully Added.', 'Added');
         return redirect()->route('admin.roles.index');
     }

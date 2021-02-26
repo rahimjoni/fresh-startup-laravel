@@ -8,6 +8,7 @@ use App\Models\Role;
 use App\Models\User;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -50,9 +51,33 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
     public function store(Request $request)
     {
-        //
+        Gate::authorize('app.user.create');
+
+        $this->validate($request,[
+            'name'          => 'required|string|max:255',
+            'email'         => 'required|string|email|max:255|unique:users',
+            'password'      => 'required|confirmed|string|min:8',
+            'role'          => 'required',
+            'avatar'        => 'required|image',
+        ]);
+
+        $user = User::create([
+            'role_id'       =>$request->role,
+            'name'          =>$request->name,
+            'email'         =>$request->email,
+            'password'      =>Hash::make($request->password),
+            'status'        =>$request->status,
+        ]);
+
+        if ($request->hasFile('avatar'))
+        {
+            $user->addMedia($request->avatar)->toMediaCollection('avatar');
+        }
+        notify()->success('User Successfully Added.', 'Added');
+        return redirect()->route('admin.users.index');
     }
 
     /**
@@ -63,7 +88,12 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        //
+        Gate::authorize('app.user.index');
+        $pageInfo = [
+            'pageTitle' => 'Users',
+            'menu' => 'users'
+        ];
+        return view('backend.users.show',compact('user'))->with($pageInfo);
     }
 
     /**
@@ -74,7 +104,13 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        //
+        Gate::authorize('app.user.create');
+        $pageInfo = [
+            'pageTitle' => 'User Edit',
+            'menu' => 'users'
+        ];
+        $roles = Role::all();
+        return view('backend.users.form',compact('roles','user'))->with($pageInfo);
     }
 
     /**
@@ -86,7 +122,28 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        $this->validate($request,[
+            'name'          => 'required|string|max:255',
+            'email'         => 'required|string|email|max:255|unique:users,email,'.$user->id,
+            'password'      => 'nullable|confirmed|string|min:8',
+            'role'          => 'required',
+            'avatar'        => 'nullable|image',
+        ]);
+
+        $user->update([
+            'role_id'       =>$request->role,
+            'name'          =>$request->name,
+            'email'         =>$request->email,
+            'password'      =>isset($request->password)? Hash::make($request->password): $user->password,
+            'status'        =>$request->status,
+        ]);
+
+        if ($request->hasFile('avatar'))
+        {
+            $user->addMedia($request->avatar)->toMediaCollection('avatar');
+        }
+        notify()->success('User Successfully Update.', 'Added');
+        return redirect()->route('admin.users.index');
     }
 
     /**

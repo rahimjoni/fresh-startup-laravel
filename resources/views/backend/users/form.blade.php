@@ -38,8 +38,11 @@
                 </div>
             </div>
             <!-- End Breadcrumb-->
-            <form method="POST" action="{{ isset($user)? route('admin.users.update',$user->id) : route('admin.users.store') }}" autocomplete="off">
-
+            <form method="POST" action="{{ isset($user)? route('admin.users.update',$user->id) : route('admin.users.store') }}" autocomplete="off" enctype="multipart/form-data">
+                @csrf
+                @isset($user)
+                    @method('PUT')
+                @endisset
                 <div class="row">
                     <div class="col-lg-8">
                         <div class="card">
@@ -68,7 +71,7 @@
                                     <label for="password">{{ __('Password') }}</label>
                                     <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" placeholder="Enter Your Password" name="password">
                                     @error('email')
-                                    <span class="invalid-feedback" role="alert">
+                                    <span class="text-danger" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                     @enderror
@@ -77,7 +80,7 @@
                                     <label for="confirm_password">{{ __('Confirm Password') }}</label>
                                     <input id="confirm_password" type="password" class="form-control @error('password') is-invalid @enderror" placeholder="Enter Your Confirm Password" name="password_confirmation">
                                     @error('email')
-                                    <span class="invalid-feedback" role="alert">
+                                    <span class="text-danger" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                     @enderror
@@ -104,7 +107,7 @@
                                     <label for="role">{{ __('Role') }}</label>
                                     <select id="role" class="form-control js-example-basic-single @error('role') is-invalid @enderror"  name="role" value="{{ $user->role ?? old('role') }}">
                                         @foreach($roles as $key=>$role)
-                                            <option value="{{ $role->id }}">{{ $role->name }}</option>
+                                            <option value="{{ $role->id }}" @isset($user) {{ $user->role->id == $role->id? 'selected':'' }} @endisset>{{ $role->name }}</option>
                                         @endforeach
                                     </select>
                                     @error('role')
@@ -116,10 +119,10 @@
 
                                 <div class="form-group">
                                     <label for="avatar">{{ __('Avatar') }}</label>
-                                    <input id="avatar" type="file" class="form-control dropify @error('avatar') is-invalid @enderror"  name="avatar" value="{{ $user->avatar ?? old('avatar') }}">
+                                    <input id="avatar" type="file" class="form-control dropify @error('avatar') is-invalid @enderror"  name="avatar" data-default-file="{{ isset($user) ? $user->getFirstMediaUrl('avatar'):'' }}">
 
                                     @error('avatar')
-                                    <span class="invalid-feedback" role="alert">
+                                    <span class="text-danger" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                     @enderror
@@ -127,8 +130,8 @@
                                 <div class="form-group">
                                     <label for="status">{{ __('Status') }}</label>
                                     <select id="status" class="form-control @error('role') is-invalid @enderror"  name="status" value="{{ $user->status ?? old('status') }}">
-                                        <option value="active">Active</option>
-                                        <option value="inactive">Inactive</option>
+                                        <option value="active" @isset($user) {{ $user->status == 'active' ? 'selected' : ''}} @endisset>Active</option>
+                                        <option value="inactive" @isset($user) {{ $user->status == 'inactive' ? 'selected' : ''}} @endisset>Inactive</option>
                                     </select>
                                     @error('status')
                                     <span class="invalid-feedback" role="alert">

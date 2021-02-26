@@ -49,7 +49,8 @@
                                                 <td>
                                                     <div class="media align-items-center user-pointer collapsed" data-toggle="collapse" data-target="#user-dropdown">
                                                         <div class="avatar">
-                                                            <img width="40" class="rounded-circle" src="{{ config('app.placeholder').'160' }}" alt="User Avatar">
+                                                            <img width="40" class="rounded-circle"
+                                                                 src="{{ $user->getFirstMediaUrl('avatar') != null ? $user->getFirstMediaUrl('avatar') : config('app.placeholder').'160' }}" alt="User Avatar">
                                                         </div>
                                                         <div class="media-body" style="margin-left: 15%">
                                                             <h6 class="side-user-name" style="line-height: 0% !important;">{{ $user->name }}</h6>
@@ -66,7 +67,7 @@
 
                                                 <td>{{$user->email}}</td>
                                                 <td class="text-center">
-                                                    @if($user->status == true)
+                                                    @if($user->status == 'active')
                                                         <span class="badge badge-info">Active</span>
                                                     @else
                                                         <span class="badge badge-danger">Inactive</span>
@@ -74,8 +75,12 @@
                                                 </td>
                                                 <td>{{$user->created_at->diffForHumans()}}</td>
                                                 <td class="text-center">
-                                                    <a type="button" href="{{route('admin.roles.edit',$user->id)}}" class="btn btn-sm btn-info waves-effect waves-light m-1">
-                                                        <i class="fa fa-edit"></i></a>
+                                                    <a type="button" href="{{route('admin.users.show',$user->id)}}" class="btn btn-sm btn-success waves-effect waves-light m-1">
+                                                        <i class="fa fa-eye"></i>
+                                                    </a>
+                                                    <a type="button" href="{{route('admin.users.edit',$user->id)}}" class="btn btn-sm btn-info waves-effect waves-light m-1">
+                                                        <i class="fa fa-edit"></i>
+                                                    </a>
                                                         <button type="button" class="btn btn-danger btn-sm" onclick="deleteData({{ $user->id }})">
                                                             <i class="fa fa-trash-o"></i>
                                                         </button>
