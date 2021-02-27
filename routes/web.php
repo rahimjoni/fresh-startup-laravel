@@ -29,4 +29,5 @@ Route::group(['as'=>'admin.','prefix'=>'admin','middleware'=>['auth']],function 
    Route::get('/dashboard',DashboardController::class)->name('dashboard');
    Route::resource('/roles',RoleController::class);
    Route::resource('/users',UserController::class);
+   Route::resource('/backups',\App\Http\Controllers\Backend\BackupsController::class)->only(['index','create','store']);
 });

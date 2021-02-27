@@ -22,7 +22,7 @@
                             <i class="fa fa-arrow-left"></i> Back
                         </a>
                         <a href="{{route('admin.users.edit',$user->id)}}" class="btn btn-info" data-toggle="tooltip" title="Back to List">
-                            <i class="fa fa-edit"></i> Back
+                            <i class="fa fa-edit"></i> Edit
                         </a>
                     </div>
                 </div>
