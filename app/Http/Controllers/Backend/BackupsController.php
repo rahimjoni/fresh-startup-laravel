@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Response;
 
 class BackupsController extends Controller
 {
@@ -35,7 +37,7 @@ class BackupsController extends Controller
                     'file_name' => $file_name,
                     'file_size' => $this->bytesToHuman($disk->size($file)),
                     'created_at' => Carbon::parse($disk->lastModified($file))->diffForHumans(),
-/*                    'download_link' => action('Backend\BackupController@download', [$file_name]),*/
+                    'download_link' => action([BackupsController::class, 'download'],[$file_name]),
                 ];
             }
 
@@ -75,7 +77,13 @@ class BackupsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Gate::authorize('app.backups.create');
+        // start the backup process
+        Artisan::call('backup:run');
+
+        notify()->success('Backup Created Successfully.', 'Added');
+        return back();
+
     }
 
     /**
@@ -87,6 +95,25 @@ class BackupsController extends Controller
     public function show($id)
     {
         //
+    }
+
+    public function download($file_name)
+    {
+        Gate::authorize('app.backups.download');
+
+        $file = config('backup.backup.name') . '/' . $file_name;
+        $disk = Storage::disk(config('backup.backup.destination.disks')[0]);
+        if ($disk->exists($file)) {
+            $fs = Storage::disk(config('backup.backup.destination.disks')[0])->getDriver();
+            $stream = $fs->readStream($file);
+            return \Response::stream(function () use ($stream) {
+                fpassthru($stream);
+            }, 200, [
+                "Content-Type" => $fs->getMimetype($file),
+                "Content-Length" => $fs->getSize($file),
+                "Content-disposition" => "attachment; filename=\"" . basename($file) . "\"",
+            ]);
+        }
     }
 
     /**
@@ -118,8 +145,26 @@ class BackupsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($file_name)
     {
-        //
+        Gate::authorize('app.backups.destroy');
+        $disk = Storage::disk(config('backup.backup.destination.disks')[0]);
+
+        if ($disk->exists(config('backup.backup.name') . '/' . $file_name)) {
+            $disk->delete(config('backup.backup.name') . '/' . $file_name);
+        }
+        notify()->success('Backup Successfully Deleted.', 'Deleted');
+        return back();
+
+    }
+
+    public function clean()
+    {
+        Gate::authorize('app.backups.destroy');
+        // start the backup process
+        Artisan::call('backup:clean');
+
+        notify()->success('All Old Backups Successfully Deleted.', 'Added');
+        return back();
     }
 }

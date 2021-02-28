@@ -17,9 +17,26 @@
                         </div>
                         <div class="col-md-6 text-right">
                             <div class="dataTables_length" id="default-datatable_length">
-                                <a href="{{route('admin.users.create')}}" class="btn btn-info" data-toggle="tooltip" title="Add Item">
-                                    <i class="fa fa-plus-square"></i> Add new
-                                </a>
+                                <button onclick="event.preventDefault();
+                                   document.getElementById('new-backups').submit()" type="button" href="{{route('admin.users.create')}}" class="btn btn-info" data-toggle="tooltip" title="Add Item">
+                                    <i class="fa fa-plus-square"></i> Create New Backup
+                                </button>
+                                <form id="new-backups" method="post" action="{{ route('admin.backups.store') }}" style="display: none">
+                                    @csrf
+                                </form>
+
+                                <button onclick="event.preventDefault();
+                          document.getElementById('clean-old-backups').submit();"
+                                        class="btn-shadow btn btn-danger">
+                        <span class="btn-icon-wrapper pr-2 opacity-7">
+                            <i class="fa fa-trash fa-w-20"></i>
+                        </span>
+                                    {{ __('Clean Old Backups') }}
+                                </button>
+                                <form id="clean-old-backups" action="{{ route('admin.backups.clean') }}" method="POST" style="display: none;">
+                                    @csrf
+                                    @method('DELETE')
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -36,7 +53,7 @@
                                             <th class="sorting_asc">#ID</th>
                                             <th class="sorting">Name</th>
                                             <th class="sorting">Size</th>
-                                            <th class="sorting">Joined At</th>
+                                            <th class="sorting">Created At</th>
                                             <th class="sorting">Action</th>
                                         </tr>
                                         </thead>
@@ -51,7 +68,7 @@
                                                 <td class="text-center">{{ $backup['file_size'] }}</td>
                                                 <td class="text-center">{{ $backup['created_at'] }}</td>
                                                 <td class="text-center">
-                                                    <a class="btn btn-info btn-sm" href="#"><i
+                                                    <a class="btn btn-info btn-sm" href="{{ route('admin.backups.download',$backup['file_name']) }}"><i
                                                             class="fa fa-download"></i>
                                                         <span>Download</span>
                                                     </a>
@@ -61,7 +78,7 @@
                                                         <span>Delete</span>
                                                     </button>
                                                     <form id="delete-form-{{ $key }}"
-                                                          action="#" method="POST"
+                                                          action="{{ route('admin.backups.destroy',$backup['file_name']) }}" method="POST"
                                                           style="display: none;">
                                                         @csrf()
                                                         @method('DELETE')

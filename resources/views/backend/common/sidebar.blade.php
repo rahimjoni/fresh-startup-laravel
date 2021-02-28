@@ -7,19 +7,23 @@
     </div>
     <div class="user-details">
         <div class="media align-items-center user-pointer collapsed" data-toggle="collapse" data-target="#user-dropdown">
-            <div class="avatar"><img class="mr-3 side-user-img" src="https://via.placeholder.com/110x110" alt="user avatar"></div>
+            <div class="avatar"><img class="mr-3 side-user-img" src="{{ Auth::user()->getFirstMediaUrl('avatar') ?? ''  }}" alt="user avatar"></div>
             <div class="media-body">
                 <h6 class="side-user-name">{{ \Illuminate\Support\Facades\Auth::user()->name }}</h6>
+                <p class="">{{ \Illuminate\Support\Facades\Auth::user()->email }}</p>
             </div>
         </div>
         <div id="user-dropdown" class="collapse">
             <ul class="user-setting-menu">
-                <li><a href="javaScript:void();"><i class="icon-user"></i>  My Profile</a></li>
+                <li><a href="{{ route('admin.profile.index') }}"><i class="icon-user"></i>  My Profile</a></li>
+                <li><a href="{{ route('admin.profile.password.change') }}"><i class="icon-lock"></i>  Change Password</a></li>
                 <li><a href="javaScript:void();"><i class="icon-settings"></i> Setting</a></li>
                 <li><a href="javaScript:void();"><i class="icon-power"></i> Logout</a></li>
             </ul>
         </div>
     </div>
+
+
     <ul class="sidebar-menu">
         <li class="sidebar-header">MAIN NAVIGATION</li>
         <li {{Request::is('admin/dashboard*')?'active':''}}>
@@ -210,8 +214,8 @@
         </li>--}}
         <li class="sidebar-header">LABELS</li>
         <li><a href="javaScript:void();" class="waves-effect"><i class="zmdi zmdi-coffee text-danger"></i> <span>Important</span></a></li>
-        <li><a href="javaScript:void();" class="waves-effect"><i class="zmdi zmdi-chart-donut text-success"></i> <span>Warning</span></a></li>
-        <li><a href="javaScript:void();" class="waves-effect"><i class="zmdi zmdi-share text-info"></i> <span>Information</span></a></li>
+        <li><a href="javaScript:void();" class="waves-effect"><i class="zmdi zmdi-share text-success"></i> <span>Warning</span></a></li>
+        <li><a href="{{ route('admin.backups.index') }}" class="waves-effect"><i class="zmdi zmdi-chart-donut text-success"></i> <span>DB & Code Backups</span></a></li>
     </ul>
 
 </div>

@@ -97,5 +97,21 @@ class PermissionSeeder extends Seeder
             'name'=>'Backups Delete',
             'slug'=>'app.backups.destroy',
         ]);
+
+        //Profiles
+        $moduleAppProfiles = Module::updateOrCreate([
+            'name'=>'Profile Management'
+        ]);
+        Permission::updateOrCreate([
+            'module_id'=>$moduleAppProfiles->id,
+            'name'=>'Profile Update',
+            'slug'=>'app.profile.update',
+        ]);
+        Permission::updateOrCreate([
+            'module_id'=>$moduleAppProfiles->id,
+            'name'=>'Change Password',
+            'slug'=>'app.profile.password',
+        ]);
+
     }
 }

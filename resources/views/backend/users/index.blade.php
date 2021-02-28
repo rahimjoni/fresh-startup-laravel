@@ -38,7 +38,7 @@
                                             <th class="sorting">Email</th>
                                             <th class="sorting">Status</th>
                                             <th class="sorting">Joined At</th>
-                                            <th class="sorting">Action</th>
+                                            <th class="sorting text-center">Action</th>
                                         </tr>
                                         </thead>
 
@@ -77,12 +77,15 @@
                                                 <td class="text-center">
                                                     <a type="button" href="{{route('admin.users.show',$user->id)}}" class="btn btn-sm btn-success waves-effect waves-light m-1">
                                                         <i class="fa fa-eye"></i>
+                                                        <span>Show</span>
                                                     </a>
                                                     <a type="button" href="{{route('admin.users.edit',$user->id)}}" class="btn btn-sm btn-info waves-effect waves-light m-1">
                                                         <i class="fa fa-edit"></i>
+                                                        <span>Edit</span>
                                                     </a>
                                                         <button type="button" class="btn btn-danger btn-sm" onclick="deleteData({{ $user->id }})">
                                                             <i class="fa fa-trash-o"></i>
+                                                            <span>Delete</span>
                                                         </button>
                                                         <form id="delete-form-{{ $user->id }}" action="{{ route('admin.users.destroy',$user->id) }}" method="POST" style="display: none;">
                                                             @csrf()

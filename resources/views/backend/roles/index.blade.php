@@ -53,11 +53,15 @@
                                                 </td>
                                                 <td>{{$role->updated_at->diffForHumans()}}</td>
                                                 <td class="text-center">
-                                                    <a type="button" href="{{route('admin.roles.edit',$role->id)}}" class="btn btn-sm btn-info waves-effect waves-light m-1"> <i class="fa fa-edit"></i> </a>
+                                                    <a type="button" href="{{route('admin.roles.edit',$role->id)}}" class="btn btn-sm btn-info waves-effect waves-light m-1">
+                                                        <i class="fa fa-edit"></i>
+                                                        <span>Edit</span>
+                                                    </a>
                                                     @if ($role->deletable == true)
                                                         <button type="button" class="btn btn-danger btn-sm"
                                                                 onclick="deleteData({{ $role->id }})">
                                                             <i class="fa fa-trash-o"></i>
+                                                            <span>Delete</span>
                                                         </button>
                                                         <form id="delete-form-{{ $role->id }}"
                                                               action="{{ route('admin.roles.destroy',$role->id) }}" method="POST"
