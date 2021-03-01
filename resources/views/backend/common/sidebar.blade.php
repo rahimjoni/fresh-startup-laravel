@@ -43,6 +43,12 @@
                 <span>Users</span>
             </a>
         </li>
+        <li class="{{Request::is('admin/pages*')?'active':''}}">
+            <a href="{{route('admin.pages.index')}}" class="waves-effect">
+                <i class="zmdi zmdi-pages"></i>
+                <span>Pages</span>
+            </a>
+        </li>
 
 {{--        <li>
             <a href="javaScript:void();" class="waves-effect">

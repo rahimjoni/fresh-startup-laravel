@@ -15,7 +15,8 @@
     <link href="{{asset('backend/assets/plugins/simplebar/css/simplebar.css')}}" rel="stylesheet"/>
     <!-- Bootstrap core CSS-->
     <link href="{{asset('backend/assets/css/bootstrap.min.css')}}" rel="stylesheet"/>
-
+    <!-- editor wizard -->
+    <link rel="stylesheet" href="{{ asset('backend/assets/plugins/summernote/dist/summernote-bs4.css') }}"/>
     <!-- animate CSS-->
     <link href="{{asset('backend/assets/css/animate.css')}}" rel="stylesheet" type="text/css"/>
     <!-- Icons CSS-->
@@ -97,6 +98,7 @@
 <!-- Vector map JavaScript -->
 <script src="{{asset('backend/assets/plugins/vectormap/jquery-jvectormap-2.0.2.min.js')}}"></script>
 <script src="{{asset('backend/assets/plugins/vectormap/jquery-jvectormap-world-mill-en.js')}}"></script>
+
 <!-- Easy Pie Chart JS -->
 <script src="{{asset('backend/assets/plugins/jquery.easy-pie-chart/jquery.easypiechart.min.js')}}"></script>
 <!-- Sparkline JS -->
@@ -107,11 +109,33 @@
 <script src="{{asset('js/script.js')}}"></script>
 <script src="{{ asset('js/iziToast.js') }}"></script>
 @include('vendor.lara-izitoast.toast')
+<!--Editor wizard Js-->
+<script src="{{ asset('backend/assets/plugins/summernote/dist/summernote-bs4.min.js') }}"></script>
 @stack('js')
 <script>
     $(function() {
         $(".knob").knob();
     });
+
+    //editor
+    $('#summernoteEditor').summernote({
+        height: 180,
+        tabsize: 2
+    });
+    $('#summernoteEditorMeta').summernote({
+        height: 110,
+        tabsize: 2
+    });
+    $('#summernoteEditorKeyword').summernote({
+        height: 110,
+        tabsize: 2
+    });
+    $('#summernoteEditorBody').summernote({
+        height: 280,
+        tabsize: 2
+    });
+
+
 </script>
 
 <!-- Index js -->

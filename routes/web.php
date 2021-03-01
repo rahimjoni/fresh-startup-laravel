@@ -6,6 +6,7 @@ use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Backend\BackupsController;
 use App\Http\Controllers\Backend\ProfileController;
+use App\Http\Controllers\Backend\PageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -42,4 +43,7 @@ Route::group(['as'=>'admin.','prefix'=>'admin','middleware'=>['auth']],function 
     // Change password
     Route::get('profile/security', [ProfileController::class, 'changePassword'])->name('profile.password.change');
     Route::post('profile/security', [ProfileController::class, 'updatePassword'])->name('profile.password.update');
+
+    // Pages
+    Route::resource('/pages',PageController::class);
 });
