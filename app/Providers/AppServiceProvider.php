@@ -16,7 +16,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        //$this->app->register(\browner12\helpers\HelperServiceProvider::class);
     }
 
     /**
@@ -31,5 +31,6 @@ class AppServiceProvider extends ServiceProvider
         Blade::if('role', function ($role){
             return Auth::user()->role->slug == $role;
         });
+
     }
 }

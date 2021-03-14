@@ -16,4 +16,9 @@ class Page extends Model implements HasMedia
     {
         $this->addMediaCollection('image')->singleFile();
     }
+
+    public static function findByslug($slug)
+    {
+        return self::where('slug',$slug)->where('status','active')->firstOrFail();
+    }
 }

@@ -8,6 +8,8 @@ use App\Http\Controllers\Backend\BackupsController;
 use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\Backend\PageController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PagesController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -47,3 +49,6 @@ Route::group(['as'=>'admin.','prefix'=>'admin','middleware'=>['auth']],function 
     // Pages
     Route::resource('/pages',PageController::class);
 });
+
+// Always end
+Route::get('{slug}',[PagesController::class,'index'])->name('page');

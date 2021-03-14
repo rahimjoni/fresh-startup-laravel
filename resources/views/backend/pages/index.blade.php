@@ -48,7 +48,7 @@
                                                 <td>{{$key+1}}</td>
                                                 <td> {{ $page->title }} </td>
 
-                                                <td>{{ $page->slug }}</td>
+                                                <td><a href="{{ route('page',$page->slug) }}">{{ $page->slug }}</a></td>
                                                 <td class="text-center">
                                                     @if($page->status == 'active')
                                                         <span class="badge badge-info">Active</span>
@@ -58,10 +58,10 @@
                                                 </td>
                                                 <td>{{$page->created_at->diffForHumans()}}</td>
                                                 <td class="text-center">
-                                                    <a type="button" href="{{route('admin.pages.show',$page->id)}}" class="btn btn-sm btn-success waves-effect waves-light m-1">
+                                                    {{--<a type="button" href="{{route('admin.pages.show',$page->id)}}" class="btn btn-sm btn-success waves-effect waves-light m-1">
                                                         <i class="fa fa-eye"></i>
                                                         <span>Show</span>
-                                                    </a>
+                                                    </a>--}}
                                                     <a type="button" href="{{route('admin.pages.edit',$page->id)}}" class="btn btn-sm btn-info waves-effect waves-light m-1">
                                                         <i class="fa fa-edit"></i>
                                                         <span>Edit</span>

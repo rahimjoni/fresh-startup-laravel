@@ -17,12 +17,17 @@
             <ul class="user-setting-menu">
                 <li><a href="{{ route('admin.profile.index') }}"><i class="icon-user"></i>  My Profile</a></li>
                 <li><a href="{{ route('admin.profile.password.change') }}"><i class="icon-lock"></i>  Change Password</a></li>
-                <li><a href="javaScript:void();"><i class="icon-settings"></i> Setting</a></li>
-                <li><a href="javaScript:void();"><i class="icon-power"></i> Logout</a></li>
+                <li><a href="{{ route('logout') }}"
+                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                        <i class="icon-power"></i> Logout</a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+                </li>
             </ul>
         </div>
     </div>
-
 
     <ul class="sidebar-menu">
         <li class="sidebar-header">MAIN NAVIGATION</li>
@@ -41,12 +46,6 @@
             <a href="{{route('admin.users.index')}}" class="waves-effect">
                 <i class="zmdi zmdi-accounts"></i>
                 <span>Users</span>
-            </a>
-        </li>
-        <li class="{{Request::is('admin/pages*')?'active':''}}">
-            <a href="{{route('admin.pages.index')}}" class="waves-effect">
-                <i class="zmdi zmdi-pages"></i>
-                <span>Pages</span>
             </a>
         </li>
 
@@ -219,9 +218,9 @@
             </ul>
         </li>--}}
         <li class="sidebar-header">LABELS</li>
-        <li><a href="javaScript:void();" class="waves-effect"><i class="zmdi zmdi-coffee text-danger"></i> <span>Important</span></a></li>
-        <li><a href="javaScript:void();" class="waves-effect"><i class="zmdi zmdi-share text-success"></i> <span>Warning</span></a></li>
-        <li><a href="{{ route('admin.backups.index') }}" class="waves-effect"><i class="zmdi zmdi-chart-donut text-success"></i> <span>DB & Code Backups</span></a></li>
+        <li><a href="javaScript:void();" class="waves-effect"><i class="zmdi zmdi-coffee text-danger"></i> <span>Settings</span></a></li>
+        <li class="{{Request::is('admin/pages*')?'active':''}}"><a href="{{route('admin.pages.index')}}" class="waves-effect"><i class="zmdi zmdi-pages text-info"></i> <span>Page</span></a></li>
+        <li class="{{Request::is('admin/backups*')?'active':''}}"><a href="{{ route('admin.backups.index') }}" class="waves-effect"><i class="zmdi zmdi-chart-donut text-success"></i> <span>DB & Code Backups</span></a></li>
     </ul>
 
 </div>

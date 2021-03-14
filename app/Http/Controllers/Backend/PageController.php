@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Page;
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
@@ -49,6 +50,7 @@ class PageController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
     public function store(Request $request)
     {
         Gate::authorize('app.pages.create');
@@ -96,7 +98,12 @@ class PageController extends Controller
      */
     public function edit(Page $page)
     {
-        //
+        Gate::authorize('app.pages.create');
+        $pageInfo = [
+            'pageTitle' => 'Page Edit',
+            'menu' => 'pages'
+        ];
+        return view('backend.pages.form',compact('page'))->with($pageInfo);
     }
 
     /**
@@ -106,9 +113,33 @@ class PageController extends Controller
      * @param  \App\Models\Page  $page
      * @return \Illuminate\Http\Response
      */
+
     public function update(Request $request, Page $page)
     {
-        //
+        Gate::authorize('app.pages.create');
+
+        $this->validate($request,[
+            'title'         => 'required|string|unique:pages,title,'.$page->id,
+            'body'          => 'required|string',
+            'image'         => 'nullable|image',
+        ]);
+
+        $page->update([
+            'title'             =>$request->title,
+            'slug'              =>Str::slug($request->title),
+            'excerpt'           =>$request->excerpt,
+            'body'              =>$request->body,
+            'meta_description'  =>Hash::make($request->meta_description),
+            'meta_keyword'      =>Hash::make($request->meta_keyword),
+            'status'            =>$request->status,
+        ]);
+
+        if ($request->hasFile('image'))
+        {
+            $page->addMedia($request->image)->toMediaCollection('image');
+        }
+        notify()->success('Page Successfully Updated.', 'Update');
+        return redirect()->route('admin.pages.index');
     }
 
     /**
@@ -117,8 +148,12 @@ class PageController extends Controller
      * @param  \App\Models\Page  $page
      * @return \Illuminate\Http\Response
      */
+
     public function destroy(Page $page)
     {
-        //
+        Gate::authorize('app.pages.destroy');
+        $page->delete();
+        notify()->success("Page Successfully Deleted", "Deleted");
+        return back();
     }
 }
