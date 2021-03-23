@@ -1,4 +1,5 @@
 <?php
+/*namespace app\Helpers\SettingsHelper;*/
 
 if (!function_exists('setting')) {
 

@@ -9,6 +9,7 @@ use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\Backend\PageController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\Backend\SettingsController;
 
 
 /*
@@ -52,3 +53,8 @@ Route::group(['as'=>'admin.','prefix'=>'admin','middleware'=>['auth']],function 
 
 // Always end
 Route::get('{slug}',[PagesController::class,'index'])->name('page');
+
+Route::group(['as'=>'settings.','prefix'=>'settings'],function (){
+    Route::get('general',[SettingsController::class,'general'])->name('general');
+    Route::put('general',[SettingsController::class,'generalUpdate'])->name('general.update');
+});
