@@ -55,6 +55,10 @@ Route::group(['as'=>'admin.','prefix'=>'admin','middleware'=>['auth']],function 
 Route::get('{slug}',[PagesController::class,'index'])->name('page');
 
 Route::group(['as'=>'settings.','prefix'=>'settings'],function (){
+    // General Settings
     Route::get('general',[SettingsController::class,'general'])->name('general');
     Route::put('general',[SettingsController::class,'generalUpdate'])->name('general.update');
+    // Appearance Settings
+    Route::get('appearance',[SettingsController::class,'appearance'])->name('appearance');
+    Route::put('appearance',[SettingsController::class,'appearanceUpdate'])->name('appearance.update');
 });

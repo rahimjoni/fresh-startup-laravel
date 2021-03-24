@@ -1,7 +1,19 @@
 @extends('layouts.backend.app')
 
 @push('css')
-
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/css/dropify.min.css" integrity="sha512-EZSUkJWTjzDlspOoPSpUFR0o0Xy7jdzW//6qhUkoZ9c4StFkVsp9fbbd0O06p9ELS3H486m4wmrCELjza4JEog==" crossorigin="anonymous" />
+    <style>
+        .dropify-wrapper .dropify-message p {
+            font-size: initial;
+        }
+        .select2-container--default .select2-selection--single {
+            background-color: #fff;
+            border: 1px solid #aaa;
+            border-radius: 4px;
+            height: 37px !important;
+        }
+    </style>
 @endpush
 
 @section('content')
@@ -27,7 +39,7 @@
             </div>
             <!-- End Breadcrumb-->
 
-            <form method="POST" action="{{route('settings.general.update') }}" autocomplete="off" enctype="multipart/form-data">
+            <form method="POST" action="{{route('settings.appearance.update') }}" autocomplete="off" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
 
@@ -50,35 +62,24 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label for="site_title">Site Title <code>{ key: site_title }</code></label>
-                                    <input id="name" type="name" class="form-control @error('site_title') is-invalid @enderror" name="site_title" placeholder="Enter Your Site Title" value="{{ setting('site_title') ?? old('site_title') }}">
+                                    <label for="site_logo">{{ __('Logo') }}</label>
+                                    <input id="site_logo" type="file" class="form-control dropify @error('site_logo') is-invalid @enderror"  name="site_logo" data-default-file="{{ setting('site_logo') != null ?  \Illuminate\Support\Facades\Storage::url(setting('site_logo')) : '' }}">
 
-                                    @error('site_title')
-                                    <span class="invalid-feedback" role="alert">
+                                    @error('site_logo')
+                                    <span class="text-danger" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                     @enderror
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="site_description">Site Description <code>{ key: site_description }</code></label>
-                                    <textarea name="site_description" id="site_description"
-                                              class="form-control @error('site_description') is-invalid @enderror">{{ setting('site_description') ?? old('site_description') }}</textarea>
-                                    @error('site_description')
-                                    <span class="invalid-feedback" role="alert">
-                                 <strong>{{ $message }}</strong>
-                             </span>
-                                    @enderror
-                                </div>
+                                    <label for="site_favicon">{{ __('Favicon Icon') }}</label>
+                                    <input id="site_favicon" type="file" class="form-control dropify @error('site_favicon') is-invalid @enderror"  name="site_favicon" data-default-file="{{ setting('site_favicon') != null ?  \Illuminate\Support\Facades\Storage::url(setting('site_favicon')) : '' }}">
 
-                                <div class="form-group">
-                                    <label for="site_address">Site Address <code>{ key: site_address }</code></label>
-                                    <textarea name="site_address" id="site_address"
-                                              class="form-control @error('site_address') is-invalid @enderror">{{ setting('site_address') ?? old('site_address') }}</textarea>
-                                    @error('site_address')
-                                    <span class="invalid-feedback" role="alert">
-                                 <strong>{{ $message }}</strong>
-                             </span>
+                                    @error('site_favicon')
+                                    <span class="text-danger" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
                                     @enderror
                                 </div>
 
@@ -100,7 +101,15 @@
 
 
 @push('js')
-
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/js/dropify.min.js" integrity="sha512-8QFTrG0oeOiyWo/VM9Y8kgxdlCryqhIxVeRpWSezdRRAvarxVtwLnGroJgnVW9/XBRduxO/z1GblzPrMQoeuew==" crossorigin="anonymous"></script>
+    <script>
+        // In your Javascript (external .js resource or <script> tag)
+        $(document).ready(function() {
+            $('.js-example-basic-single').select2();
+            $('.dropify').dropify();
+        });
+    </script>
 @endpush
 
 

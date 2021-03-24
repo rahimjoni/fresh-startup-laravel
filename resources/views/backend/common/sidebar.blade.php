@@ -1,8 +1,8 @@
 <div id="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
     <div class="brand-logo">
-        <a href="index.html">
-            <img src="{{asset(url('backend/assets/images/logo-icon.png'))}}" class="logo-icon" alt="logo icon">
-            <h5 class="logo-text">Dashtreme Admin</h5>
+        <a href="{{ route('admin.dashboard') }}">
+            <img src="{{ \Illuminate\Support\Facades\Storage::url(setting('site_logo')) }}" class="logo-icon" alt="logo icon">
+            <h5 class="logo-text">{{ setting('site_title','Fresh Project') }}</h5>
         </a>
     </div>
     <div class="user-details">
