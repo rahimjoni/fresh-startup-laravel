@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\RoleController;
 use App\Http\Controllers\Backend\UserController;
@@ -61,4 +62,13 @@ Route::group(['as'=>'settings.','prefix'=>'settings'],function (){
     // Appearance Settings
     Route::get('appearance',[SettingsController::class,'appearance'])->name('appearance');
     Route::put('appearance',[SettingsController::class,'appearanceUpdate'])->name('appearance.update');
+    // Mail Settings
+    Route::get('mail',[SettingsController::class,'mail'])->name('mail');
+    Route::put('mail',[SettingsController::class,'mailUpdate'])->name('mail.update');
+});
+
+// Socialite routes
+Route::group(['as' => 'login.', 'prefix' => 'login', 'namespace' => 'Auth'], function () {
+    Route::get('/{provider}', [LoginController::class, 'redirectToProvider'])->name('provider');
+    Route::get('/{provider}/callback', [LoginController::class, 'handleProviderCallback'])->name('callback');
 });

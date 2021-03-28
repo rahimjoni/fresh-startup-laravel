@@ -70,6 +70,55 @@ class SettingsController extends Controller
         return back();
     }
 
+    public function mail(){
+        $pageInfo = [
+            'pageTitle' => 'Mail Settings',
+            'menu' => 'mail'
+        ];
+        return view('backend.settings.mail')->with($pageInfo);
+    }
+
+    public function mailUpdate(Request $request){
+
+        $this->validate($request,[
+            'MAIL_MAILER'          => 'string|max:255',
+            'MAIL_HOST'            => 'nullable|string|max:255',
+            'MAIL_PORT'            => 'nullable|string|max:255',
+            'MAIL_USERNAME'        => 'nullable|string|max:255',
+            'MAIL_PASSWORD'        => 'nullable|string|max:255',
+            'MAIL_ENCRYPTION'      => 'nullable|string|max:255',
+            'MAIL_FROM_ADDRESS'    => 'nullable|email|max:255',
+            'MAIL_FROM_NAME'       => 'nullable|string|max:255',
+        ]);
+
+        Settings::updateOrCreate(['name'=>'MAIL_MAILER'],['value' =>$request->get('MAIL_MAILER')]);
+        Artisan::call("env:set MAIL_MAILER='".$request->get('MAIL_MAILER')."'");
+
+        Settings::updateOrCreate(['name'=>'MAIL_HOST'],['value' =>$request->get('MAIL_HOST')]);
+        Artisan::call("env:set MAIL_HOST='".$request->get('MAIL_HOST')."'");
+
+        Settings::updateOrCreate(['name'=>'MAIL_PORT'],['value' =>$request->get('MAIL_PORT')]);
+        Artisan::call("env:set MAIL_PORT='".$request->get('MAIL_PORT')."'");
+
+        Settings::updateOrCreate(['name'=>'MAIL_USERNAME'],['value' =>$request->get('MAIL_USERNAME')]);
+        Artisan::call("env:set MAIL_USERNAME='".$request->get('MAIL_USERNAME')."'");
+
+        Settings::updateOrCreate(['name'=>'MAIL_PASSWORD'],['value' =>$request->get('MAIL_PASSWORD')]);
+        Artisan::call("env:set MAIL_PASSWORD='".$request->get('MAIL_PASSWORD')."'");
+
+        Settings::updateOrCreate(['name'=>'MAIL_ENCRYPTION'],['value' =>$request->get('MAIL_ENCRYPTION')]);
+        Artisan::call("env:set MAIL_ENCRYPTION='".$request->get('MAIL_ENCRYPTION')."'");
+
+        Settings::updateOrCreate(['name'=>'MAIL_FROM_ADDRESS'],['value' =>$request->get('MAIL_FROM_ADDRESS')]);
+        Artisan::call("env:set MAIL_FROM_ADDRESS='".$request->get('MAIL_FROM_ADDRESS')."'");
+
+        Settings::updateOrCreate(['name'=>'MAIL_FROM_NAME'],['value' =>$request->get('MAIL_FROM_NAME')]);
+        Artisan::call("env:set MAIL_FROM_NAME='".$request->get('MAIL_FROM_NAME')."'");
+
+        notify()->success('Setting Successfully Updated.', 'Updated');
+        return redirect()->back();
+    }
+
     private function deleteOldLogo($path)
     {
         Storage::disk('public')->delete($path);

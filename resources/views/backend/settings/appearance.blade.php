@@ -26,7 +26,7 @@
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
                         <li class="breadcrumb-item"><a href="{{ route('admin.users.index') }}">Setting</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Update Settings</li>
+                        <li class="breadcrumb-item active" aria-current="page">Update Appearance Settings</li>
                     </ol>
                 </div>
                 <div class="col-md-3 text-right">

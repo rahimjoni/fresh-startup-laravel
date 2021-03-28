@@ -7,7 +7,8 @@
     </div>
     <div class="user-details">
         <div class="media align-items-center user-pointer collapsed" data-toggle="collapse" data-target="#user-dropdown">
-            <div class="avatar"><img class="mr-3 side-user-img" src="{{ Auth::user()->getFirstMediaUrl('avatar') ?? ''  }}" alt="user avatar"></div>
+            <div class="avatar"><img class="mr-3 side-user-img" src="{{ Auth::user()->getFirstMediaUrl('avatar') != null ? Auth::user()->getFirstMediaUrl('avatar') : config('app.placeholder').'160' }}" alt="user avatar">
+            </div>
             <div class="media-body">
                 <h6 class="side-user-name">{{ \Illuminate\Support\Facades\Auth::user()->name }}</h6>
                 <p class="">{{ \Illuminate\Support\Facades\Auth::user()->email }}</p>
@@ -218,7 +219,7 @@
             </ul>
         </li>--}}
         <li class="sidebar-header">LABELS</li>
-        <li><a href="javaScript:void();" class="waves-effect"><i class="zmdi zmdi-coffee text-danger"></i> <span>Settings</span></a></li>
+        <li class="{{Request::is('admin/general*')?'active':''}}"><a href="{{route('settings.general')}}" class="waves-effect"><i class="zmdi zmdi-coffee text-danger"></i> <span>Settings</span></a></li>
         <li class="{{Request::is('admin/pages*')?'active':''}}"><a href="{{route('admin.pages.index')}}" class="waves-effect"><i class="zmdi zmdi-pages text-info"></i> <span>Page</span></a></li>
         <li class="{{Request::is('admin/backups*')?'active':''}}"><a href="{{ route('admin.backups.index') }}" class="waves-effect"><i class="zmdi zmdi-chart-donut text-success"></i> <span>DB & Code Backups</span></a></li>
     </ul>
